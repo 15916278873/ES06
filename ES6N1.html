@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class OnlineShop {
+            gotoshopping() { return '网店购物' }
+        }
+        class BookShop extends OnlineShop {
+            gotobrowse() { return '浏览图书目录'; }
+        }
+        let bookshop = new BookShop();
+        console.log(bookshop.gotoshopping());
+        console.log(bookshop.gotobrowse());
+        class BuyBook {
+            gotopurchase() { return '购物图书'; }
+        }
+        Object.assign(BookShop.prototype, { BuyBook: BuyBook.prototype.gotopurchase });
+        console.log(bookshop.BuyBook());
+    </script>
+</body>
+
+</html>
